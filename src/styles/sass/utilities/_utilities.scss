@@ -31,14 +31,14 @@
 
 .flex-col-start {
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .flex-col-end {
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .justify-space-between {

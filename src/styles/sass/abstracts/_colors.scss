@@ -1,21 +1,28 @@
-:root{
-// All canvas colors
---color-canvas-primary: #ffffff;
---color-canvas-secondary: #ffffff;
---color-canvas-tertiary: #ffffff;
+:root {
+  // All brand colors
+  --color-brand-1010: #ffffff;
+  --color-brand-2020: #ffffff;
+  --color-brand-3030: #ffffff;
 
-// All brand colors
---color-brand-primary: #ffffff;
---color-brand-secondary: #ffffff;
---color-brand-tertiary: #ffffff;
+  // All text colors
+  --color-text-1010: #ffffff;
+  --color-text-2020: #ffffff;
+  --color-text-3030: #ffffff;
 
-// All layout colors
---color-layout-primary: #ffffff;
---color-layout-secondary: #ffffff;
---color-layout-tertiary: #ffffff;
+  // All hover colors
+  --color-hover-1010: #ffffff;
+  --color-hover-2020: #ffffff;
+  --color-hover-3030: #ffffff;
 
-// All text colors
---color-text-primary: #ffffff;
---color-text-secondary: #ffffff;
---color-text-tertiary: #ffffff;
+  // All alert colors
+  --color-error: #b30021;
+  --color-success: #00b300;
+
+  // All border colors
+  --color-border-1010: #ffffff;
+  --color-border-2020: #ffffff;
+
+  // All other colors
+  --color-other-1010: #ffffff;
+  --color-other-2020: #ffffff;
 }

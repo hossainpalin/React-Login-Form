@@ -1,7 +1,5 @@
 // Base styles are here
 @forward './base/font-face.scss';
-
-// Remove reset and typography after using Bootstrap or Tailwind CSS
 @forward './base/reset.scss';
 @forward './base/typography.scss';
 
