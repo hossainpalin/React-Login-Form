@@ -1,26 +1,29 @@
 :root {
   // All brand colors
-  --color-brand-1010: #ffffff;
-  --color-brand-2020: #ffffff;
+  --color-brand-1010: #3a6645;
+  --color-brand-2020: #ca773f;
   --color-brand-3030: #ffffff;
 
   // All text colors
-  --color-text-1010: #ffffff;
-  --color-text-2020: #ffffff;
-  --color-text-3030: #ffffff;
+  --color-text-1010: #393939;
+  --color-text-2020: #6c707d;
+  --color-text-3030: #5c5c5c;
 
   // All hover colors
-  --color-hover-1010: #ffffff;
-  --color-hover-2020: #ffffff;
-  --color-hover-3030: #ffffff;
+  --color-hover-1010: #a7a7a7;
+  --color-hover-2020: #f2f2f2;
+  --color-hover-3030: #c0692e;
+
+  // All focus colors
+  --color-focus-1010: #c0692e;
 
   // All alert colors
-  --color-error: #b30021;
+  --color-error-1010: #ff002f;
+  --color-error-2020: #fce9ec;
   --color-success: #00b300;
 
   // All border colors
-  --color-border-1010: #ffffff;
-  --color-border-2020: #ffffff;
+  --color-border-1010: #cccccc;
 
   // All other colors
   --color-other-1010: #ffffff;

@@ -1,0 +1,19 @@
+.account__info {
+  width: 100%;
+  margin-top: 2rem;
+
+  & p {
+    width: 100%;
+    font-size: 0.9rem;
+    text-align: center;
+    color: var(--color-text-3030);
+
+    & a {
+      color: var(--color-brand-2020);
+
+      &:hover {
+        color: var(--color-hover-3030);
+      }
+    }
+  }
+}

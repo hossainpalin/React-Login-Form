@@ -1,0 +1,107 @@
+@use '../sass/abstracts/breakpoints' as *;
+
+.login__container {
+  width: 100%;
+
+  // Responsive styles
+  @include breakpoint(lg) {
+    padding-right: 1.8rem;
+  }
+
+  .greeting__text {
+    width: 100%;
+    margin-bottom: 1.7rem;
+
+    .heading {
+      font-size: 2.2rem;
+      font-weight: var(--font-weight-600);
+      color: var(--color-text-1010);
+    }
+
+    .subheading {
+      font-size: 1rem;
+      font-weight: var(--font-weight-300);
+      color: var(--color-text-3030);
+    }
+  }
+
+  .user__input {
+    width: 100%;
+    margin-bottom: 1.5rem;
+
+    & label {
+      width: 100%;
+      position: relative;
+      font-size: 0.9rem;
+      font-weight: var(--font-weight-500);
+      color: var(--color-text-1010);
+
+      .eye__toggle {
+        position: absolute;
+        font-size: 1.3rem;
+        right: 15px;
+        bottom: 4px;
+        color: var(--color-text-1010);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .user__security {
+    width: 100%;
+
+    .remember__me {
+      width: 50%;
+      .checkbox[type='checkbox'] {
+        width: 20px;
+        margin-top: 0;
+        margin-right: 5px;
+        filter: hue-rotate(180deg);
+        cursor: pointer;
+      }
+
+      & span {
+        font-size: 0.9rem;
+        font-weight: var(--font-weight-400);
+        color: var(--color-text-1010);
+      }
+    }
+
+    .forgot__password {
+      width: 50%;
+
+      & a {
+        font-size: 0.9rem;
+        font-weight: var(--font-weight-400);
+        color: var(--color-text-2020);
+
+        &:hover {
+          color: var(--color-hover-3030);
+        }
+      }
+    }
+  }
+
+  .user__submit {
+    width: 100%;
+    margin-top: 1.5rem;
+
+    .submit__button {
+      font-size: 0.9rem;
+      font-weight: var(--font-weight-400);
+      color: var(--color-brand-3030);
+      border-color: var(--color-brand-2020);
+      background-color: var(--color-brand-2020);
+
+      &:hover {
+        border-color: var(--color-hover-3030);
+        background-color: var(--color-hover-3030);
+      }
+    }
+  }
+}
+
+.field__required {
+  background-color: var(--color-error-2020);
+  border-color: var(--color-error-1010) !important;
+}

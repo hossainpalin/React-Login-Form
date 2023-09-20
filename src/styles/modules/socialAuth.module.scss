@@ -1,0 +1,16 @@
+.social__auth__container {
+  width: 100%;
+
+  .auth__heading {
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-500);
+    margin-bottom: 0.8rem;
+    color: var(--color-text-1010);
+  }
+
+  .auth__button {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 1rem;
+  }
+}

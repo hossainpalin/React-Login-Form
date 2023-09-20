@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react';
+import Layout from './Layout';
+import Auth from './pages/Auth';
 
 function App() {
-  return <div>hello world</div>;
+  return (
+    <Layout>
+      <Auth />
+    </Layout>
+  );
 }
 
 export default App;
