@@ -9,9 +9,14 @@ function Input({ className, type, ...rest }) {
 }
 
 Input.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
   type: PropTypes.string.isRequired,
-  rest: PropTypes.node.isRequired,
+  rest: PropTypes.node,
+};
+
+Input.defaultProps = {
+  className: null,
+  rest: null,
 };
 
 export default Input;

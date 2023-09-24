@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Styles from '../styles/modules/layout.module.scss';
 
 function Layout({ children }) {
   return (
-    <div>{children}</div>
+    <div className={`${Styles.layout} flex flex-col-center`}>{children}</div>
   );
 }
 

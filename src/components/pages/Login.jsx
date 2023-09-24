@@ -1,45 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { VscEye, VscEyeClosed } from 'react-icons/vsc';
 import Styles from '../../styles/modules/login.module.scss';
-import AccountInfo from '../AccountInfo';
 import Button from '../Button';
+import Greeting from '../Greeting';
 import Input from '../Input';
 import Params from '../Params';
-import Required from '../Required';
 import Separator from '../Separator';
 import SocialAuth from '../SocialAuth';
+import UserToggle from '../UserToggle';
 
 function Login() {
   const [eyeToggle, setEyeToggle] = useState(false);
   const [type, setType] = useState(true);
-  const [email, setEmail] = useState('');
-  const [emailRequired, setEmailRequired] = useState(false);
-  const [password, setPassword] = useState('');
-  const [passwordRequired, setPasswordRequired] = useState(false);
+  const [animation, setAnimation] = useState(false);
 
-  // Login form submit handler
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (email === '') {
-      setEmailRequired(true);
-    } else {
-      setEmailRequired(false);
-      setEmail('');
-    }
-    if (password === '') {
-      setPasswordRequired(true);
-    } else {
-      setPasswordRequired(false);
-      setPassword('');
-    }
-  };
+  // Login form animation
+  useEffect(() => {
+    setAnimation(true);
+  }, [animation]);
 
   return (
-    <div className={Styles.login__container}>
-      <div className={Styles.greeting__text}>
-        <h1 className={Styles.heading}>Welcome back</h1>
-        <p className={Styles.subheading}>Enter the information you entered while registering</p>
-      </div>
+    <div className={`${Styles.login__container} ${animation ? Styles.animation : null}`}>
+      {/* Greeting section here */}
+      <Greeting heading="Welcome back👋" subheading="Enter the information you entered while registering" />
 
       {/* Social login section here */}
       <SocialAuth />
@@ -47,14 +30,13 @@ function Login() {
       {/* Separator line section here */}
       <Separator />
 
-      {/* User submit section here */}
-      <form onSubmit={handleSubmit}>
+      {/* User form section here */}
+      <form>
         {/* Email section here */}
         <div className={Styles.user__input}>
           <label htmlFor="email">
-            Email address
-            <Input type="email" className={emailRequired && Styles.field__required} value={email} onChange={(e) => setEmail(e.target.value)} onFocus={() => setEmailRequired(false)} />
-            {emailRequired && <Required>This field is required</Required>}
+            Email Address
+            <Input type="text" name="email" className={null && Styles.field__required} />
           </label>
         </div>
 
@@ -62,18 +44,17 @@ function Login() {
         <div className={Styles.user__input}>
           <label htmlFor="password">
             Password
-            <Input type={type ? 'password' : 'text'} className={passwordRequired && Styles.field__required} autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} onFocus={() => setPasswordRequired(false)} />
-            {passwordRequired && <Required>This field is required</Required>}
+            <Input type={type ? 'password' : 'text'} name="password" className={null && Styles.field__required} autoComplete="new-password" />
             <span className={Styles.eye__toggle} onClick={() => { setEyeToggle(!eyeToggle); setType(!type); }} aria-hidden="true">{eyeToggle ? <VscEyeClosed /> : <VscEye />}</span>
           </label>
         </div>
 
-        {/* User security section here */}
+        {/* Security section here */}
         <div className={`${Styles.user__security} flex justify-space-between`}>
           {/* Remember password section here */}
           <div className={`${Styles.remember__me} flex flex-row-start`}>
             <Input type="checkbox" className={Styles.checkbox} />
-            <Params>Remember me</Params>
+            <Params text="Remember me" />
           </div>
 
           {/* Forget password section here */}
@@ -82,14 +63,14 @@ function Login() {
           </div>
         </div>
 
-        {/* User submit section here */}
+        {/* Submit button section here */}
         <div className={Styles.user__submit}>
           <Button className={Styles.submit__button} type="submit" Children="Sign In" />
         </div>
       </form>
 
-      {/* Don't account section here */}
-      <AccountInfo />
+      {/* Don't have account section here */}
+      <UserToggle params="Need an account?" location="/auth/register" action="Register Here" />
     </div>
   );
 }

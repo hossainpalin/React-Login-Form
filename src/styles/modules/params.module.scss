@@ -3,4 +3,13 @@
   font-weight: var(--font-weight-400);
   color: var(--color-text-1010);
   margin-bottom: 0;
+
+  & a {
+    color: var(--color-brand-2020);
+    margin-left: 5px;
+
+    &:hover {
+      color: var(--color-hover-3030);
+    }
+  }
 }

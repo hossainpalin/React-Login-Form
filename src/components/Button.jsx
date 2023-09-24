@@ -17,10 +17,16 @@ function Button({
 }
 
 Button.propTypes = {
-  Children: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  rest: PropTypes.node.isRequired,
+  Children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  type: PropTypes.string,
+  rest: PropTypes.node,
+};
+
+Button.defaultProps = {
+  className: null,
+  type: null,
+  rest: null,
 };
 
 export default Button;

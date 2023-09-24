@@ -19,20 +19,12 @@
   },
 
   // Eslint Config Here
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 
   // Eslint Emmet Config Here
   "emmet.triggerExpansionOnTab": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
-  },
-
-  // Correct Line Ending Config Here
-  "files.eol": "\n"
+  }
 }
