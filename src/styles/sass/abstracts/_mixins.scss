@@ -1,0 +1,56 @@
+// Login and register form mixin
+@mixin loginRegisterForm {
+  width: 100%;
+  position: relative;
+  transform: translateX(150%);
+  transition: all 0.5s ease;
+}
+
+// Password eye toggle mixin
+@mixin eyeToggle {
+  position: absolute;
+  font-size: 1.3rem;
+  right: 15px;
+  bottom: 4px;
+  color: var(--color-text-1010);
+  cursor: pointer;
+}
+
+// Form label mixin
+@mixin formLabel {
+  width: 100%;
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-500);
+  color: var(--color-text-1010);
+}
+
+// Submit button mixin
+@mixin submitButton {
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-400);
+  color: var(--color-brand-3030);
+  border-color: var(--color-brand-2020);
+  background-color: var(--color-brand-2020);
+
+  &:hover {
+    border-color: var(--color-hover-3030);
+    background-color: var(--color-hover-3030);
+  }
+}
+
+// Input type checkbox mixin
+@mixin checkBox {
+  width: 20px;
+  margin-top: 0;
+  margin-right: 5px;
+  filter: hue-rotate(180deg);
+  cursor: pointer;
+}
+
+// Span mixin
+@mixin span {
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-400);
+  color: var(--color-text-1010);
+}

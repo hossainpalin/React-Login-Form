@@ -36,7 +36,7 @@ function Login() {
         <div className={Styles.user__input}>
           <label htmlFor="email">
             Email Address
-            <Input type="text" name="email" className={null && Styles.field__required} />
+            <Input type="text" name="email" className={null && Styles.required__field} />
           </label>
         </div>
 
@@ -44,7 +44,7 @@ function Login() {
         <div className={Styles.user__input}>
           <label htmlFor="password">
             Password
-            <Input type={type ? 'password' : 'text'} name="password" className={null && Styles.field__required} autoComplete="new-password" />
+            <Input type={type ? 'password' : 'text'} name="password" className={null && Styles.required__field} autoComplete="new-password" />
             <span className={Styles.eye__toggle} onClick={() => { setEyeToggle(!eyeToggle); setType(!type); }} aria-hidden="true">{eyeToggle ? <VscEyeClosed /> : <VscEye />}</span>
           </label>
         </div>

@@ -39,7 +39,7 @@ function Register() {
           <div className={Styles.first__input}>
             <label htmlFor="first_name">
               First Name
-              <Input type="text" name="first_name" className={null && Styles.field__required} />
+              <Input type="text" name="first_name" className={null && Styles.required__field} />
             </label>
           </div>
 
@@ -47,7 +47,7 @@ function Register() {
           <div className={Styles.last__input}>
             <label htmlFor="last_name">
               Last Name
-              <Input type="text" name="last_name" className={null && Styles.field__required} />
+              <Input type="text" name="last_name" className={null && Styles.required__field} />
             </label>
           </div>
         </div>
@@ -56,7 +56,7 @@ function Register() {
         <div className={Styles.user__input}>
           <label htmlFor="email">
             Email Address
-            <Input type="text" name="email" className={null && Styles.field__required} />
+            <Input type="text" name="email" className={null && Styles.required__field} />
           </label>
         </div>
 
@@ -65,7 +65,7 @@ function Register() {
           <div className={Styles.first__input}>
             <label htmlFor="first_name">
               Password
-              <Input type="password" name="first_name" className={null && Styles.field__required} autoComplete="new-password" />
+              <Input type="password" name="first_name" className={null && Styles.required__field} autoComplete="new-password" />
             </label>
           </div>
 
@@ -73,7 +73,7 @@ function Register() {
           <div className={Styles.last__input}>
             <label htmlFor="last_name">
               Confirm Password
-              <Input type={type ? 'password' : 'text'} name="last_name" className={null && Styles.field__required} autoComplete="new-password" />
+              <Input type={type ? 'password' : 'text'} name="last_name" className={null && Styles.required__field} autoComplete="new-password" />
 
               {/* Password eye toggle section here */}
               <span className={Styles.eye__toggle} onClick={() => { setEyeToggle(!eyeToggle); setType(!type); }} aria-hidden="true">{eyeToggle ? <VscEyeClosed /> : <VscEye />}</span>
