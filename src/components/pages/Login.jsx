@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { VscEye, VscEyeClosed } from 'react-icons/vsc';
+import Formik from '../../hooks/useFormik';
 import Styles from '../../styles/modules/login.module.scss';
 import Button from '../Button';
+import Error from '../Error';
 import Greeting from '../Greeting';
 import Input from '../Input';
 import Params from '../Params';
@@ -13,6 +15,11 @@ function Login() {
   const [eyeToggle, setEyeToggle] = useState(false);
   const [type, setType] = useState(true);
   const [animation, setAnimation] = useState(false);
+
+  // Formik form handler
+  const {
+    values, handleChange, handleSubmit, handleBlur, errors, touched, dirty, isSubmitting,
+  } = Formik();
 
   // Login form animation
   useEffect(() => {
@@ -31,22 +38,24 @@ function Login() {
       <Separator />
 
       {/* User form section here */}
-      <form>
+      <form onSubmit={handleSubmit}>
         {/* Email section here */}
         <div className={Styles.user__input}>
           <label htmlFor="email">
             Email Address
-            <Input type="text" name="email" className={null && Styles.required__field} />
+            <Input className={errors.email && touched.email && Styles.required__field} type="text" name="email" value={values.email} onChange={handleChange} onBlur={handleBlur} />
           </label>
+          {errors.email && touched.email && (<Error>{errors.email}</Error>)}
         </div>
 
         {/* Password section here */}
         <div className={Styles.user__input}>
           <label htmlFor="password">
             Password
-            <Input type={type ? 'password' : 'text'} name="password" className={null && Styles.required__field} autoComplete="new-password" />
+            <Input className={errors.password && touched.password && Styles.required__field} type={type ? 'password' : 'text'} name="password" autoComplete="new-password" value={values.password} onChange={handleChange} onBlur={handleBlur} />
             <span className={Styles.eye__toggle} onClick={() => { setEyeToggle(!eyeToggle); setType(!type); }} aria-hidden="true">{eyeToggle ? <VscEyeClosed /> : <VscEye />}</span>
           </label>
+          {errors.password && touched.password && (<Error>{errors.password}</Error>)}
         </div>
 
         {/* Security section here */}
@@ -65,7 +74,7 @@ function Login() {
 
         {/* Submit button section here */}
         <div className={Styles.user__submit}>
-          <Button className={Styles.submit__button} type="submit" Children="Sign In" />
+          <Button className={Styles.submit__button} type="submit" Children="Sign In" disabled={!dirty || isSubmitting} />
         </div>
       </form>
 
