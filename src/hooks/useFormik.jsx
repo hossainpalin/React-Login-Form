@@ -15,6 +15,9 @@ function Formik() {
   const formik = useFormik({
     initialValues: formikInitialValues,
     validationSchema: FormikSchema,
+    onSubmit: (values, { resetForm }) => {
+      resetForm();
+    },
   });
 
   return formik;

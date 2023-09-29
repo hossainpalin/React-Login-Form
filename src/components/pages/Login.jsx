@@ -18,7 +18,7 @@ function Login() {
 
   // Formik form handler
   const {
-    values, handleChange, handleSubmit, handleBlur, errors, touched, dirty, isSubmitting,
+    values, handleChange, handleSubmit, handleBlur, errors, touched, dirty, isSubmitting, resetForm,
   } = Formik();
 
   // Login form animation
@@ -74,7 +74,7 @@ function Login() {
 
         {/* Submit button section here */}
         <div className={Styles.user__submit}>
-          <Button className={Styles.submit__button} type="submit" Children="Sign In" disabled={!dirty || isSubmitting} />
+          <Button className={Styles.submit__button} type="submit" Children="Sign In" disabled={!dirty || isSubmitting} onClick={resetForm} />
         </div>
       </form>
 

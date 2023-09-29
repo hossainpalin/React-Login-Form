@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { VscEye, VscEyeClosed } from 'react-icons/vsc';
+import Formik from '../../hooks/useFormik';
 import Styles from '../../styles/modules/register.module.scss';
 import Button from '../Button';
+import Error from '../Error';
 import Greeting from '../Greeting';
 import Input from '../Input';
 import Params from '../Params';
@@ -13,6 +15,11 @@ function Register() {
   const [eyeToggle, setEyeToggle] = useState(false);
   const [type, setType] = useState(true);
   const [animation, setAnimation] = useState(false);
+
+  // Formik form handler
+  const {
+    values, handleChange, handleSubmit, handleBlur, errors, touched, dirty, isSubmitting, resetForm,
+  } = Formik();
 
   // Register form animation
   useEffect(() => {
@@ -31,7 +38,7 @@ function Register() {
       <Separator />
 
       {/* User form section here */}
-      <form>
+      <form onSubmit={handleSubmit}>
         {/* User first name section here */}
         <div className={Styles.user__input}>
 
@@ -39,16 +46,18 @@ function Register() {
           <div className={Styles.first__input}>
             <label htmlFor="first_name">
               First Name
-              <Input type="text" name="first_name" className={null && Styles.required__field} />
+              <Input className={errors.first_name && touched.first_name && Styles.required__field} type="text" name="first_name" value={values.first_name} onChange={handleChange} onBlur={handleBlur} />
             </label>
+            {errors.first_name && touched.first_name && (<Error>{errors.first_name}</Error>)}
           </div>
 
           {/* Last name section here */}
           <div className={Styles.last__input}>
             <label htmlFor="last_name">
               Last Name
-              <Input type="text" name="last_name" className={null && Styles.required__field} />
+              <Input className={errors.last_name && touched.last_name && Styles.required__field} type="text" name="last_name" value={values.last_name} onChange={handleChange} onBlur={handleBlur} />
             </label>
+            {errors.last_name && touched.last_name && (<Error>{errors.last_name}</Error>)}
           </div>
         </div>
 
@@ -56,8 +65,9 @@ function Register() {
         <div className={Styles.user__input}>
           <label htmlFor="email">
             Email Address
-            <Input type="text" name="email" className={null && Styles.required__field} />
+            <Input className={errors.email && touched.email && Styles.required__field} type="text" name="email" value={values.email} onChange={handleChange} onBlur={handleBlur} />
           </label>
+          {errors.email && touched.email && (<Error>{errors.email}</Error>)}
         </div>
 
         {/* Password section here */}
@@ -65,19 +75,21 @@ function Register() {
           <div className={Styles.first__input}>
             <label htmlFor="first_name">
               Password
-              <Input type="password" name="first_name" className={null && Styles.required__field} autoComplete="new-password" />
+              <Input className={errors.password && touched.password && Styles.required__field} type="password" name="password" autoComplete="new-password" value={values.password} onChange={handleChange} onBlur={handleBlur} />
             </label>
+            {errors.password && touched.password && (<Error>{errors.password}</Error>)}
           </div>
 
           {/* Confirm password section here */}
           <div className={Styles.last__input}>
             <label htmlFor="last_name">
               Confirm Password
-              <Input type={type ? 'password' : 'text'} name="last_name" className={null && Styles.required__field} autoComplete="new-password" />
+              <Input className={errors.confirm_password && touched.confirm_password && Styles.required__field} type={type ? 'password' : 'text'} name="confirm_password" autoComplete="new-password" value={values.confirm_password} onChange={handleChange} onBlur={handleBlur} />
 
               {/* Password eye toggle section here */}
               <span className={Styles.eye__toggle} onClick={() => { setEyeToggle(!eyeToggle); setType(!type); }} aria-hidden="true">{eyeToggle ? <VscEyeClosed /> : <VscEye />}</span>
             </label>
+            {errors.confirm_password && touched.confirm_password && (<Error>{errors.confirm_password}</Error>)}
           </div>
         </div>
 
@@ -89,7 +101,7 @@ function Register() {
 
         {/* Submit button section here */}
         <div className={Styles.user__submit}>
-          <Button className={Styles.submit__button} type="submit" Children="Register" />
+          <Button className={Styles.submit__button} type="submit" Children="Register" disabled={!dirty || isSubmitting} onClick={resetForm} />
         </div>
       </form>
 

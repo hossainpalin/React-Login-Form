@@ -12,6 +12,7 @@
   .user__input {
     width: 100%;
     margin-bottom: 1.5rem;
+    position: relative;
 
     // Responsive styles
     @include breakpoint(xs) {
@@ -31,6 +32,7 @@
     .first__input {
       width: 100%;
       margin-bottom: 1.5rem;
+      position: relative;
 
       // Responsive styles
       @include breakpoint(xs) {
@@ -41,6 +43,7 @@
 
     .last__input {
       width: 100%;
+      position: relative;
 
       // Responsive styles
       @include breakpoint(xs) {
