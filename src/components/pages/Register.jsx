@@ -1,12 +1,13 @@
+import { useFormik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import { VscEye, VscEyeClosed } from 'react-icons/vsc';
-import Formik from '../../hooks/useFormik';
 import Styles from '../../styles/modules/register.module.scss';
 import Button from '../Button';
 import Error from '../Error';
 import Greeting from '../Greeting';
 import Input from '../Input';
 import Params from '../Params';
+import RegisterSchema from '../RegisterSchema';
 import Separator from '../Separator';
 import SocialAuth from '../SocialAuth';
 import UserToggle from '../UserToggle';
@@ -16,10 +17,32 @@ function Register() {
   const [type, setType] = useState(true);
   const [animation, setAnimation] = useState(false);
 
+  // Formik initial values
+  const formikInitialValues = {
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
+    confirm_password: '',
+    accept_tos: false,
+  };
+
+  // Formik submit handler
+  const onSubmit = (values, actions) => {
+    setTimeout(() => {
+      actions.resetForm();
+      document.getElementById('tos__id').checked = false;
+    }, 1000);
+  };
+
   // Formik form handler
   const {
-    values, handleChange, handleSubmit, handleBlur, errors, touched, dirty, isSubmitting, resetForm,
-  } = Formik();
+    values, handleChange, handleSubmit, handleBlur, errors, touched, dirty, isSubmitting,
+  } = useFormik({
+    initialValues: formikInitialValues,
+    validationSchema: RegisterSchema,
+    onSubmit,
+  });
 
   // Register form animation
   useEffect(() => {
@@ -95,13 +118,14 @@ function Register() {
 
         {/* Terms & condition section here */}
         <div className={`${Styles.terms__condition} flex flex-row-start`}>
-          <Input type="checkbox" className={Styles.checkbox} />
+          <Input className={Styles.checkbox} id="tos__id" type="checkbox" name="accept_tos" onChange={handleChange} onBlur={handleBlur} />
           <Params text="I accept" link="terms & conditions" />
+          {errors.accept_tos && touched.accept_tos && (<Error>{errors.accept_tos}</Error>)}
         </div>
 
         {/* Submit button section here */}
         <div className={Styles.user__submit}>
-          <Button className={Styles.submit__button} type="submit" Children="Register" disabled={!dirty || isSubmitting} onClick={resetForm} />
+          <Button className={Styles.submit__button} type="submit" Children="Register" disabled={!dirty || isSubmitting} />
         </div>
       </form>
 

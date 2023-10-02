@@ -1,11 +1,12 @@
+import { useFormik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import { VscEye, VscEyeClosed } from 'react-icons/vsc';
-import Formik from '../../hooks/useFormik';
 import Styles from '../../styles/modules/login.module.scss';
 import Button from '../Button';
 import Error from '../Error';
 import Greeting from '../Greeting';
 import Input from '../Input';
+import LoginSchema from '../LoginSchema';
 import Params from '../Params';
 import Separator from '../Separator';
 import SocialAuth from '../SocialAuth';
@@ -16,10 +17,27 @@ function Login() {
   const [type, setType] = useState(true);
   const [animation, setAnimation] = useState(false);
 
+  // Formik initial values
+  const formikInitialValues = {
+    email: '',
+    password: '',
+  };
+
+  // Formik submit handler
+  const onSubmit = (values, actions) => {
+    setTimeout(() => {
+      actions.resetForm();
+    }, 1000);
+  };
+
   // Formik form handler
   const {
-    values, handleChange, handleSubmit, handleBlur, errors, touched, dirty, isSubmitting, resetForm,
-  } = Formik();
+    values, handleChange, handleSubmit, handleBlur, errors, touched, dirty, isSubmitting,
+  } = useFormik({
+    initialValues: formikInitialValues,
+    validationSchema: LoginSchema,
+    onSubmit,
+  });
 
   // Login form animation
   useEffect(() => {
@@ -74,7 +92,7 @@ function Login() {
 
         {/* Submit button section here */}
         <div className={Styles.user__submit}>
-          <Button className={Styles.submit__button} type="submit" Children="Sign In" disabled={!dirty || isSubmitting} onClick={resetForm} />
+          <Button className={Styles.submit__button} type="submit" Children="Sign In" disabled={!dirty || isSubmitting} />
         </div>
       </form>
 

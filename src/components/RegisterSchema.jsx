@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-const FormikSchema = Yup.object({
+const RegisterSchema = Yup.object({
   first_name: Yup.string()
     .min(5, 'At least 5 characters')
     .max(20, 'Max 20 characters')
@@ -18,6 +18,8 @@ const FormikSchema = Yup.object({
   confirm_password: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Password not matched')
     .required('This field is required'),
+  accept_tos: Yup.boolean()
+    .oneOf([true], 'You must accept the terms & conditions'),
 });
 
-export default FormikSchema;
+export default RegisterSchema;
