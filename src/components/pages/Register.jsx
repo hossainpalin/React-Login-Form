@@ -130,7 +130,7 @@ function Register() {
       </form>
 
       {/* Already have account section here */}
-      <UserToggle params="Already have an account?" location="/auth/login" action="Sign-in Here" />
+      <UserToggle params="Already have an account?" location="/React-Login-Form/login" action="Sign-in Here" />
     </div>
   );
 }

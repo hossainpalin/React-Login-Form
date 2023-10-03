@@ -10,8 +10,8 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route index element={<Navigate to="/auth/login" />} />
-        <Route path="auth" element={<Auth />}>
+        <Route index element={<Navigate to="/React-Login-Form/login" />} />
+        <Route path="React-Login-Form" element={<Auth />}>
           <Route index element={<Login />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
