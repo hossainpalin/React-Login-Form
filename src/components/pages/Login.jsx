@@ -97,7 +97,7 @@ function Login() {
       </form>
 
       {/* Don't have account section here */}
-      <UserToggle params="Need an account?" location="/React-Login-Form/register" action="Register Here" />
+      <UserToggle params="Need an account?" location="/react-login-form/register" action="Register Here" />
     </div>
   );
 }

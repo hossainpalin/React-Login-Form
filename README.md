@@ -71,4 +71,4 @@ Like my works and want to support me?
 
 Live previews are the best way for a better understanding of the application's user interface.
 
-[Click here...](https://hossainpalin.github.io/React-Login-Form/)
+[Click here...](https://hossainpalin.github.io/react-login-form/)
