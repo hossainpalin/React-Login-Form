@@ -5,7 +5,7 @@ import App from './components/App';
 import './styles/sass/main.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename={import.meta.env.DEV ? '/' : '/react-login-form/'}>
     <React.StrictMode>
       <App />
     </React.StrictMode>
